@@ -1,38 +1,11 @@
 import React from "react";
-
-interface User {
-  id: number;
-  name: string;
-  email: string;
-}
+import UserTable from "./UserTable";
 
 const UserPage = async () => {
-  const res = await fetch(
-    "https://jsonplaceholder.typicode.com/users",
-    //Hämtar data efter varje 10 sekunder
-    { cache: "no-store" }
-  );
-  const users: User[] = await res.json();
-
   return (
     <>
       <h1>Users</h1>
-      <table className="table table-bordered">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map((user) => (
-            <tr key={user.id}>
-              <td>{user.name}</td>
-              <td>{user.email}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <UserTable />
     </>
   );
 };
