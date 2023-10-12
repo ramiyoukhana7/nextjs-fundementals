@@ -18,5 +18,10 @@
 
 body {
   color: white;
-  padding: 1rem;
+}
+
+@layer base {
+  h1 {
+    @apply font-bold;
+  }
 }
