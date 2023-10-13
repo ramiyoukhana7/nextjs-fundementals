@@ -2,6 +2,7 @@ import Link from "next/link";
 import ProductCard from "./components/ProductCard";
 import { getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]/route";
+import { Metadata } from "next";
 
 export default async function Home() {
   const session = await getServerSession(authOptions);
@@ -17,3 +18,8 @@ export default async function Home() {
     </main>
   );
 }
+
+export const metadata: Metadata = {
+  title: " overwriting homepage title",
+  description: "description title",
+};
